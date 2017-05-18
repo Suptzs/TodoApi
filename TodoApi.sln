@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi", "TodoApi\TodoApi.csproj", "{BA43F998-88F4-4304-965C-38E10C678845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoClient", "TodoClient\TodoClient.csproj", "{682662CA-B00C-4A93-AF74-05C341570E86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoClientTest", "TodoClientTest\TodoClientTest.csproj", "{FC07F363-4660-4CF2-9B28-4BED4D0ED400}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BA43F998-88F4-4304-965C-38E10C678845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA43F998-88F4-4304-965C-38E10C678845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA43F998-88F4-4304-965C-38E10C678845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682662CA-B00C-4A93-AF74-05C341570E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682662CA-B00C-4A93-AF74-05C341570E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682662CA-B00C-4A93-AF74-05C341570E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682662CA-B00C-4A93-AF74-05C341570E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC07F363-4660-4CF2-9B28-4BED4D0ED400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC07F363-4660-4CF2-9B28-4BED4D0ED400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC07F363-4660-4CF2-9B28-4BED4D0ED400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC07F363-4660-4CF2-9B28-4BED4D0ED400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

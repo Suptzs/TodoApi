@@ -10,9 +10,6 @@ namespace TodoApi.Models
         public TodoRepository(TodoContext context)
         {
             _context = context;
-
-            if(!_context.TodoItems.Any())
-                Add(new TodoItem{Name = "Item1"});
         }
 
         public void Add(TodoItem item)
