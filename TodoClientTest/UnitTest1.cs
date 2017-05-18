@@ -19,14 +19,13 @@ namespace TodoClientTest
             await GetAllItems();
             await GetItemById();
             await UpdateItem();
-            await GetUpdatedItemById();
             await DeleteTodo();
         }
 
         public async Task CreateNewTodo()
         {
             var todo = new TodoItem{Name = "Netflix", IsComplete = false};
-            var url = await _client.CreateTodoItem(todo);
+            var url = await _client.Add(todo);
 
             Assert.IsTrue(url.ToString().EndsWith(todo.Key.ToString()));
             Assert.AreEqual("Netflix", todo.Name);
@@ -37,7 +36,7 @@ namespace TodoClientTest
 
         public async Task GetAllItems()
         {
-            var todos = await _client.GetAllTodos();
+            var todos = (await _client.GetAll()).ToList();
             Assert.IsTrue(todos.Count >= 1);
 
             var todoItem = todos.Single(t => t.Key == _todoId);
@@ -47,7 +46,7 @@ namespace TodoClientTest
 
         public async Task GetItemById()
         {
-            var todoItem = await _client.GetTodoById(_todoId);
+            var todoItem = await _client.Find(_todoId);
             Assert.AreEqual("Netflix", todoItem.Name);
             Assert.IsFalse(todoItem.IsComplete);
         }
@@ -55,20 +54,17 @@ namespace TodoClientTest
         public async Task UpdateItem()
         {
             var todo = new TodoItem{Key = _todoId, Name = "Chill", IsComplete = true};
-            Assert.IsTrue(await _client.UpdateTodo(_todoId, todo));
-        }
+            Assert.IsTrue(await _client.Update(_todoId, todo));
 
-        private async Task GetUpdatedItemById()
-        {
-            var todoItem = await _client.GetTodoById(_todoId);
-            Assert.AreEqual("Chill", todoItem.Name);
-            Assert.IsTrue(todoItem.IsComplete);
+            todo = await _client.Find(_todoId);
+            Assert.AreEqual("Chill", todo.Name);
+            Assert.IsTrue(todo.IsComplete);
         }
 
         public async Task DeleteTodo()
         {
-            Assert.IsTrue(await _client.DeleteTodo(_todoId));
-            Assert.IsFalse(await _client.DeleteTodo(_todoId));
+            Assert.IsTrue(await _client.Remove(_todoId));
+            Assert.IsFalse(await _client.Remove(_todoId));
         }
     }
 }
